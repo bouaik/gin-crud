@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"gin-grud/initializers"
 
 	"github.com/gin-gonic/gin"
@@ -13,8 +12,6 @@ func init() {
 }
 
 func main() {
-	fmt.Println("hello world")
-
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
