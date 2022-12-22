@@ -29,3 +29,26 @@ func PostsCreate(c *gin.Context) {
 		"post": post,
 	})
 }
+
+func PostsGet(c *gin.Context) {
+
+	var posts []models.Post
+
+	initializers.DB.Find(&posts)
+
+	c.JSON(200, gin.H{
+		"posts": posts,
+	})
+}
+
+func PostShow(c *gin.Context) {
+	var post models.Post
+
+	id := c.Param("id")
+
+	initializers.DB.First(&post, id)
+
+	c.JSON(200, gin.H{
+		"post": post,
+	})
+}
